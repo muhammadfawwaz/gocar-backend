@@ -1,0 +1,27 @@
+service: crud-order
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: us-east-1
+
+functions:
+  app:
+    handler: index.handler
+    events:
+      - http: 
+          path: /api/order
+          method: GET
+      - http: 
+          path: /api/order/insert
+          method: POST
+      - http: 
+          path: /api/order/otw
+          method: POST
+      - http: 
+          path: /api/order/arrived
+          method: POST
+      - http: 
+          path: /api/order/cancel
+          method: POST

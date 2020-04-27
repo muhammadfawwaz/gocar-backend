@@ -1,0 +1,24 @@
+service: maps
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: us-east-1
+
+functions:
+  app:
+    handler: index.handler
+    events:
+      - http: 
+          path: /api/maps/nearby-driver
+          method: POST
+      - http: 
+          path: /api/maps/nearby-location
+          method: POST
+      - http: 
+          path: /api/maps/text-search
+          method: POST
+      - http: 
+          path: /api/maps/direction
+          method: POST

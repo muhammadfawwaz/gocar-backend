@@ -1,0 +1,27 @@
+service: crud-driver
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: us-east-1
+
+functions:
+  app:
+    handler: index.handler
+    events:
+      - http: 
+          path: /api/driver
+          method: GET
+      - http: 
+          path: /api/driver/{param}
+          method: GET
+      - http: 
+          path: /api/driver/update-status
+          method: POST
+      - http: 
+          path: /api/driver/update-rating
+          method: POST
+      - http: 
+          path: /api/driver/update-trip
+          method: POST
